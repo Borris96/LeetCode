@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+# select Salary as SecondHighestSalary from Employee order by Salary desc limit 1,1; # This cannot detect null and if there is only one salary it cannot return the second highest one.
+
+# Select (select distinct Salary from Employee order by Salary desc limit 1,1) as SecondHighestSalary;
+
+Select IFNULL ((select distinct Salary from Employee order by Salary desc limit 1,1), NULL) as SecondHighestSalary;
